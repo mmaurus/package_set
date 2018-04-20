@@ -1,0 +1,7 @@
+name: sempr-package_set
+
+
+version_control:
+    - sempr/sempr-core:
+        type: git
+        url: git://github.com/sempr-tk/sempr.git
