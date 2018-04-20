@@ -1,1 +1,15 @@
 cmake_package "sempr/sempr-core"
+
+autotools_package "external/gdal-with-geos" do |pkg|
+    pkg.configureflags = pkg.configureflags << "--with-geos=yes"
+
+    # pkg.importdir and pkg.srcdir are *not* the same (not an alias), but when you change
+    # pkg.srcdir, pkg.importdir is changed too! but seemingly not vice versa.
+    # This needs to be done because the configure script of gdal is not in the root of the
+    # repository
+    importBackup = pkg.importdir
+    pkg.srcdir = pkg.srcdir << "/gdal"
+    pkg.importdir = importBackup
+
+    pkg.builddir = "."
+end

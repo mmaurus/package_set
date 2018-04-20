@@ -5,3 +5,8 @@ version_control:
     - sempr/sempr-core:
         type: git
         url: git://github.com/sempr-tk/sempr.git
+
+    - external/gdal-with-geos:
+        type: git
+        url: git://github.com/OSGeo/gdal.git
+        branch: release/2.3
