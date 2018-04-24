@@ -10,3 +10,11 @@ version_control:
         type: git
         url: git://github.com/OSGeo/gdal.git
         branch: release/2.3
+
+    - sempr/sempr-rock:
+        type: git
+        url: git://github.com/sempr-tk/sempr-rock.git
+
+    - sempr/orogen/sempr:
+        type: git
+        url: git://github.com/sempr-tk/sempr-orogen.git

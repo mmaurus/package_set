@@ -1,7 +1,9 @@
 cmake_package "sempr/sempr-core"
+cmake_package "sempr/sempr-rock"
+orogen_package "sempr/orogen/sempr"
 
 autotools_package "external/gdal-with-geos" do |pkg|
-    pkg.configureflags = pkg.configureflags << 
+    pkg.configureflags = pkg.configureflags <<
                             "--with-geos=yes" <<
                             "--prefix=#{Autobuild.prefix}" <<
                             "--includedir=#{Autobuild.prefix}/include/gdal"
