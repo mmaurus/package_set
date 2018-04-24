@@ -1,7 +1,10 @@
 cmake_package "sempr/sempr-core"
 
 autotools_package "external/gdal-with-geos" do |pkg|
-    pkg.configureflags = pkg.configureflags << "--with-geos=yes"
+    pkg.configureflags = pkg.configureflags << 
+                            "--with-geos=yes" <<
+                            "--prefix=#{Autobuild.prefix}" <<
+                            "--includedir=#{Autobuild.prefix}/include/gdal"
 
     # pkg.importdir and pkg.srcdir are *not* the same (not an alias), but when you change
     # pkg.srcdir, pkg.importdir is changed too! but seemingly not vice versa.
