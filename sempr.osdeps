@@ -1,3 +1,13 @@
 soprano:
     ubuntu:
         libsoprano-dev
+odb:
+    ubuntu:
+        - odb
+        - libodb-sqlite-2.4
+        - libodb-boost-2.4
+        - libodb-dev
+
+boost-uuid:
+    ubuntu:
+        libboost-dev
