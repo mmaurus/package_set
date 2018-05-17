@@ -11,3 +11,7 @@ odb:
 boost-uuid:
     ubuntu:
         libboost-dev
+
+sqlite3:
+    ubuntu:
+        libsqlite3-dev
