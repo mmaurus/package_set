@@ -15,3 +15,7 @@ boost-uuid:
 sqlite3:
     ubuntu:
         libsqlite3-dev
+
+geographiclib:
+    ubuntu:
+        libgeographic-dev
