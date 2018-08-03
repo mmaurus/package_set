@@ -19,3 +19,8 @@ sqlite3:
 geographiclib:
     ubuntu:
         libgeographic-dev
+
+geos:
+    ubuntu:
+        - libgeos-dev
+        - libgeos++-dev
