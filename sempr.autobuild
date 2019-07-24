@@ -1,4 +1,6 @@
-cmake_package "sempr/sempr-core"
+cmake_package "sempr/sempr-core" do |pkg|
+    pkg.depends_on("pkgconfig")
+end
 cmake_package "sempr/sempr-rock"
 orogen_package "sempr/orogen/sempr"
 
