@@ -29,3 +29,7 @@ gcc-5:
 libcutl:
     ubuntu:
         default: libcutl-dev
+
+pkg-config:
+    ubuntu:
+        default: pkg-config
