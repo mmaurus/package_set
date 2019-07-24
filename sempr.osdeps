@@ -3,10 +3,8 @@ soprano:
         libsoprano-dev
 odb:
     ubuntu:
-        - odb
-        - libodb-sqlite-2.4
-        - libodb-boost-2.4
-        - libodb-dev
+        "18.04": [libodb-sqlite-2.4, libodb-boost-2.4, libodb-dev]
+        default: [odb, libodb-sqlite-2.4, libodb-boost-2.4, libodb-dev]
 
 boost-uuid:
     ubuntu:
@@ -24,3 +22,10 @@ geos:
     ubuntu:
         - libgeos-dev
         - libgeos++-dev
+
+gcc-5:
+    ubuntu: [gcc-5, g++-5, gcc-5-plugin-dev]
+
+libcutl:
+    ubuntu:
+        default: libcutl-dev

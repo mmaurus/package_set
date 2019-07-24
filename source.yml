@@ -18,3 +18,8 @@ version_control:
     - sempr/orogen/sempr:
         type: git
         url: git://github.com/sempr-tk/sempr-orogen.git
+
+    - external/odb2.4.0-4:
+        type: archive
+        url: http://archive.ubuntu.com/ubuntu/pool/universe/o/odb/odb_2.4.0.orig.tar.bz2
+        update_cached_file: false

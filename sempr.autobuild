@@ -18,3 +18,24 @@ autotools_package "external/gdal-with-geos" do |pkg|
 
     pkg.builddir = "."
 end
+
+##### TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! <==================
+autotools_package 'external/odb2.4.0-4' do |pkg|
+    #pkg.depends_on("libodb-boost-dev")
+    pkg.depends_on("gcc-5")
+    pkg.depends_on("libcutl")
+    pkg.automake_flags = "--add-missing"
+    
+    #pkg.autoconf_flags = "CPPFLAGS=g++-5"
+    pkg.autoconf_flags = "CC=g++-5"
+    pkg.configureflags = pkg.configureflags << "--prefix=#{Autobuild.prefix}"
+end
+if (Autoproj.workspace.operating_system[1] & ['18.04']).any?
+    Autobuild::Package['external/odb2.4.0-4'].depends_on "gcc-5"
+    Autobuild::Package['external/odb2.4.0-4'].define "CMAKE_CXX_COMPILER", "g++-5"
+    Autobuild::Package['external/odb2.4.0-4'].define "CMAKE_C_COMPILER", "gcc-5"
+    Autobuild::Package['sempr/sempr-core'].depends_on "gcc-5"
+    Autobuild::Package['sempr/sempr-core'].define "CMAKE_CXX_COMPILER", "g++-5"
+    Autobuild::Package['sempr/sempr-core'].define "CMAKE_C_COMPILER", "gcc-5"
+    Autoproj.add_osdeps_overrides 'odb', :package => 'external/odb2.4.0-4'
+end
