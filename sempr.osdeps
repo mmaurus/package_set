@@ -24,7 +24,8 @@ geos:
         - libgeos++-dev
 
 gcc-5:
-    ubuntu: [gcc-5, g++-5, gcc-5-plugin-dev]
+    ubuntu: 
+        default: [gcc-5, g++-5, gcc-5-plugin-dev]
 
 libcutl:
     ubuntu:
