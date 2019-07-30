@@ -23,3 +23,18 @@ version_control:
         type: archive
         url: http://archive.ubuntu.com/ubuntu/pool/universe/o/odb/odb_2.4.0.orig.tar.bz2
         update_cached_file: false
+
+    - external/libodb:
+        type: archive
+        url: http://archive.ubuntu.com/ubuntu/pool/universe/libo/libodb/libodb_2.4.0.orig.tar.bz2
+        update_cached_file: false
+
+    - external/libodb-sqlite:
+        type: archive
+        url: http://archive.ubuntu.com/ubuntu/pool/universe/libo/libodb-sqlite/libodb-sqlite_2.4.0.orig.tar.bz2
+        update_cached_file: false
+
+    - external/libodb-boost:
+        type: archive
+        url: http://archive.ubuntu.com/ubuntu/pool/universe/libo/libodb-boost/libodb-boost_2.4.0.orig.tar.bz2
+        update_cached_file: false

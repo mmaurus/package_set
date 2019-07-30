@@ -3,7 +3,7 @@ soprano:
         libsoprano-dev
 odb:
     ubuntu:
-        "18.04": [libodb-sqlite-2.4, libodb-boost-2.4, libodb-dev]
+        "18.04": nonexistent
         default: [odb, libodb-sqlite-2.4, libodb-boost-2.4, libodb-dev]
 
 boost-uuid:

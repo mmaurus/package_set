@@ -26,12 +26,35 @@ autotools_package "external/gdal-with-geos" do |pkg|
 end
 
 ##### TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! <==================
-autotools_package 'external/odb2.4.0-4' do |pkg|
-    #pkg.depends_on("libodb-boost-dev")
+autotools_package 'external/libodb' do |pkg|
     pkg.depends_on("gcc-5")
     pkg.depends_on("libcutl")
     pkg.automake_flags = "--add-missing"
-    pkg.configureflags = pkg.configureflags << "--prefix=#{Autobuild.prefix}" << "CC=g++-5"
+    pkg.configureflags = pkg.configureflags << "--prefix=#{Autobuild.prefix}" << "CC=g++-5" << "CXX=g++-5"
+end
+autotools_package 'external/libodb-boost' do |pkg|
+    pkg.depends_on("gcc-5")
+    pkg.depends_on("libcutl")
+    pkg.depends_on("external/libodb")
+    pkg.automake_flags = "--add-missing"
+    pkg.configureflags = pkg.configureflags << "--prefix=#{Autobuild.prefix}" << "CC=g++-5" << "CXX=g++-5" << "LDFLAGS=-L#{Autobuild.prefix}/lib" << "CPPFLAGS=-I#{Autobuild.prefix}/include"
+end
+autotools_package 'external/libodb-sqlite' do |pkg|
+    pkg.depends_on("gcc-5")
+    pkg.depends_on("libcutl")
+    pkg.depends_on("external/libodb")
+    pkg.automake_flags = "--add-missing"
+    pkg.configureflags = pkg.configureflags << "--prefix=#{Autobuild.prefix}" << "CC=g++-5" << "CXX=g++-5" << "LDFLAGS=-L#{Autobuild.prefix}/lib" << "CPPFLAGS=-I#{Autobuild.prefix}/include"
+end
+autotools_package 'external/odb2.4.0-4' do |pkg|
+    #pkg.depends_on("libodb-boost-dev")
+    pkg.depends_on("external/libodb")
+    pkg.depends_on("external/libodb-boost")
+    pkg.depends_on("external/libodb-sqlite")
+    pkg.depends_on("gcc-5")
+    pkg.depends_on("libcutl")
+    pkg.automake_flags = "--add-missing"
+    pkg.configureflags = pkg.configureflags << "--prefix=#{Autobuild.prefix}" << "CC=g++-5" << "CXX=g++-5"
 end
 if (Autoproj.workspace.operating_system[1] & ['18.04']).any?
     Autobuild::Package['sempr/sempr-core'].depends_on "gcc-5"
